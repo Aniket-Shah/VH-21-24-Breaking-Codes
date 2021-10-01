@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Upload Details</title>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous"
+		/>
+	</head>
+	<script>
+		function fetchLocation() {
+			var x = document.getElementById('lat');
+			var y = document.getElementById('long');
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(pos => {
+					x.innerHTML = `Latitude: ${pos.coords.latitude} | Longitude: ${pos.coords.longitude}`;
+				});
+			} else {
+				alert('Permission not given');
+			}
+		}
+
+		function tp() {
+			setTimeout(() => {
+				alert('Submitted!');
+			}, 2000);
+		}
+	</script>
+	<body style="min-height: 100vh">
+		<section class="vh-100" style="background-color: #2779e2; min-height: 100vh">
+			<div class="container h-100">
+				<div class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col-xl-9">
+						<h1 class="text-white mb-4 mt-5">Upload flood details</h1>
+
+						<div class="card mt-5" style="border-radius: 15px">
+							<div class="card-body">
+								<hr class="mx-n3" />
+
+								<div class="row align-items-center py-3">
+									<div class="col-md-3 ps-5">
+										<h6 class="mb-0">Email address</h6>
+									</div>
+									<div class="col-md-9 pe-5">
+										<input
+											type="email"
+											class="form-control form-control-lg"
+											placeholder="example@example.com"
+										/>
+									</div>
+								</div>
+
+								<hr class="mx-n3" />
+
+								<div class="row align-items-center py-3">
+									<div class="col-md-3 ps-5">
+										<h6 class="mb-0">Get Location</h6>
+									</div>
+									<div class="col-md-9 pe-5">
+										<button type="submit" onClick="fetchLocation()" class="btn btn-primary btn-lg">
+											Fetch location
+										</button>
+										<div>
+											<span>
+												<p id="lat"></p>
+												<p id="long"></p>
+											</span>
+										</div>
+									</div>
+								</div>
+
+								<hr class="mx-n3" />
+
+								<div class="row align-items-center py-3">
+									<div class="col-md-3 ps-5">
+										<h6 class="mb-0">Upload Image file</h6>
+									</div>
+									<div class="col-md-9 pe-5">
+										<input
+											class="form-control form-control-lg"
+											id="formFileLg"
+											type="file"
+											accept="image/*"
+										/>
+										<div class="small text-muted mt-2">
+											Upload an image of the place. You may upload multiple images.
+										</div>
+									</div>
+								</div>
+
+								<hr class="mx-n3" />
+
+								<div class="px-5 py-4">
+									<button type="submit" onClick="tp()" class="btn btn-primary btn-lg">
+										Send response
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
